@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,21 +52,21 @@ public class TaskMngController {
     }
 
     //1件削除
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String deleteTask(@RequestBody TaskMngTbl task) {
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteTask(@PathVariable("id") Integer id) {
 
         //TaskMngTblのタスクを1件削除
-        taskmapper.deleteTask(task.getId());
+        taskmapper.deleteTask(id);
 
         return "削除完了しました";
     }
 
     //1件取得
     @RequestMapping(value = "/select", method = RequestMethod.GET)
-    public TaskMngTbl getOneTask(@RequestBody String id) {
+    public TaskMngTbl getOneTask(@PathVariable("id") Integer id) {
 
         //idをもとに1件タスクを取得
-        TaskMngTbl task = taskmapper.findOne(Integer.valueOf(id));
+        TaskMngTbl task = taskmapper.findOne(id);
 
         //取得したタスクを返却
         return task;

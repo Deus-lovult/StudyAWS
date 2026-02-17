@@ -24,4 +24,13 @@ public interface TaskMapper {
     //1件削除
     void deleteTask(Integer id);
 
+    //1件完了
+    void completeTask(Integer id);
+
+    //完了タスク取得
+    List<TaskMngTbl> findCompTaskList();
+
+    //未完了タスク取得
+    List<TaskMngTbl> findUnCompTaskList();
+
 }
