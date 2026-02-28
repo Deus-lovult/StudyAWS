@@ -39,15 +39,15 @@ function App() {
                   </thead>
                   <tbody>
                     {taskList.filter(task => !task.compflg).map(task => {
-                      return (<>
-                        <tr>
+                      return (
+                        <tr key={task.id}>
                           <td>{task.id}</td>
                           <td>{task.title}</td>
                           <td>{task.content}</td>
                           <td>{task.newdate}{task.newtime}</td>
                           <td>{task.updtime}</td>
                         </tr>
-                      </>);
+                      );
                       })}
                   </tbody>
                 </table>
