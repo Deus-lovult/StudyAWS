@@ -13,4 +13,24 @@
             upddate
         from TASKMNGTBL
     </select>
+
+    <insert id="registTask" parameterType="com.example.demo.entity.TaskMngTbl">
+        INSERT INTO TASKMNGTBL(
+            title,
+            content,
+            delflg,
+            compflg,
+            newdate,
+            newtime,
+            upddate
+        ) VALUES (
+            #{title},
+            #{content},
+            #{delflg},
+            #{compflg},
+            #{newdate},
+            #{newtime},
+            #{upddate}
+        )
+    </insert>
 </mapper>
