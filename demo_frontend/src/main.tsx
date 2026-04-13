@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App.tsx";
+import TaskDetail from "./pages/TaskDetail.tsx";
 import TaskRegist from "./pages/TaskRegist.tsx";
 
 createRoot(document.getElementById("root")!).render(
@@ -10,6 +11,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/regist" element={<TaskRegist />} />
+        <Route path="/detail/:id" element={<TaskDetail />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
