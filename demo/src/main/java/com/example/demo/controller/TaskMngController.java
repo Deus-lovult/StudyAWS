@@ -64,7 +64,7 @@ public class TaskMngController {
     }
 
     //1件取得
-    @RequestMapping(value = "/select", method = RequestMethod.GET)
+    @RequestMapping(value = "/select/{id}", method = RequestMethod.GET)
     public TaskMngTbl getOneTask(@PathVariable("id") Integer id) {
 
         //idをもとに1件タスクを取得

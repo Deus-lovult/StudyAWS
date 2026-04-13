@@ -33,4 +33,18 @@
             #{upddate}
         )
     </insert>
+
+    <select id="findOne" resultType="com.example.demo.entity.TaskMngTbl">
+    select 
+        id,
+        title,
+        content,
+        delflg,
+        compflg,
+        newdate,
+        newtime,
+        upddate
+    from TASKMNGTBL
+    where id=#{id}
+    </select>
 </mapper>
