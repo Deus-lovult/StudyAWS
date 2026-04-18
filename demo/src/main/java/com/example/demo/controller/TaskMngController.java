@@ -74,4 +74,11 @@ public class TaskMngController {
         return task;
     }
 
+    //1件完了
+    @RequestMapping(value = "/comp/{id}", method = RequestMethod.POST)
+    public void compTask(@PathVariable("id") Integer id) {
+
+        //idをもとに1件タスクを完了する
+        taskmapper.completeTask(id);
+    }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getAllTask } from "./api/taskApi";
+import { compTask, getAllTask } from "./api/taskApi";
 import type { task } from "./type/Task";
 
 function App() {
@@ -16,6 +16,14 @@ function App() {
 
     loadTask();
   }, []);
+
+  const compBtn = async (id?: number) => {
+    if (id !== undefined) {
+      await compTask(id);
+      const data = await getAllTask();
+      setTaskList(data);
+    }
+  };
 
   return (
     <>
@@ -61,7 +69,12 @@ function App() {
                           </td>
                           <td>{task.upddate}</td>
                           <td>
-                            <button>完了ボタン</button>
+                            <button
+                              type="button"
+                              onClick={() => compBtn(task.id)}
+                            >
+                              完了ボタン
+                            </button>
                           </td>
                           <td>
                             <button>削除ボタン</button>

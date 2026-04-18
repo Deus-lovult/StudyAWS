@@ -56,4 +56,11 @@
         upddate=#{upddate}
     WHERE id=#{id}
     </update>
+
+    <update id="completeTask" parameterType="com.example.demo.entity.TaskMngTbl">
+    UPDATE TASKMNGTBL
+    SET
+        compflg=true
+    WHERE id=#{id}
+    </update>
 </mapper>
