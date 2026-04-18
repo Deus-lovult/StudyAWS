@@ -20,6 +20,11 @@ export const getOneTask = async (id: number) => {
 };
 
 // 1件更新
+export const putOneTask = async (taskdata: task) => {
+  const res = await api().post("/update", taskdata);
+  return res;
+};
+
 // 1件削除
 // 1件完了
 // 完了タスク取得

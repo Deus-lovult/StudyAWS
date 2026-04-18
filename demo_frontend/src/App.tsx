@@ -38,7 +38,6 @@ function App() {
               <table>
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>タイトル</th>
                     <th>コンテンツ</th>
                     <th>登録日</th>
@@ -53,7 +52,6 @@ function App() {
                     .map((task) => {
                       return (
                         <tr key={task.id}>
-                          <td>{task.id}</td>
                           <td>
                             <Link to={`/detail/${task.id}`}>{task.title}</Link>
                           </td>

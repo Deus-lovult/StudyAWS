@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getOneTask } from "../api/taskApi";
+import { getOneTask, putOneTask } from "../api/taskApi";
 import type { task } from "../type/Task";
 
 const TaskDetail = () => {
@@ -25,7 +25,33 @@ const TaskDetail = () => {
     loadTask();
   }, [id]);
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    //登録日と時間取得
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+
+    //それぞれのフォーマットに変換
+    const yyyymmdd = y + m + d;
+
+    //新規取得用のタイプ
+    const newTask: task = {
+      id: parseInt(id!),
+      title: title,
+      content: content,
+      compflg: false,
+      delflg: false,
+      newdate: "",
+      newtime: "",
+      upddate: yyyymmdd,
+    };
+
+    //更新メソッド
+    await putOneTask(newTask);
+  };
 
   return (
     <>
