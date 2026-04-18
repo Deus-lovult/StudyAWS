@@ -54,8 +54,8 @@ public class TaskMngController {
     }
 
     //1件削除
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteTask(@PathVariable("id") Integer id) {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public String delOneTask(@PathVariable("id") Integer id) {
 
         //TaskMngTblのタスクを1件削除
         taskmapper.deleteTask(id);

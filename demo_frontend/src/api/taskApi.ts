@@ -26,11 +26,13 @@ export const putOneTask = async (taskdata: task) => {
 };
 
 // 1件削除
+export const deleteTask = async (id: number) => {
+  const res = await api().post(`/delete/${id}`);
+  return res;
+};
+
 // 1件完了
 export const compTask = async (id: number) => {
   const res = await api().post(`/comp/${id}`);
   return res;
 };
-
-// 完了タスク取得
-// 未完了タスク取得
