@@ -41,8 +41,7 @@ const TaskDetail = () => {
         </div>
         <div>
           <label>内容：</label>
-          <input
-            type="text"
+          <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
